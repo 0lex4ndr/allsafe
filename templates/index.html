@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контактна форма з капчею</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            margin-top: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .captcha {
+            display: flex;
+            align-items: center;
+            user-select: none; /* Заборона виділення та копіювання тексту */
+        }
+        .captcha label {
+            margin-right: 10px;
+        }
+        .captcha input[type="text"] {
+            width: 100px;
+            user-select: none; /* Заборона виділення та копіювання тексту */
+        }
+        .captcha span {
+            user-select: none; /* Заборона виділення та копіювання тексту */
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Контактна форма</h1>
+        <form method="POST" action="/submit">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                <label for="name">Ім'я</label>
+                {{ form.name() }}
+            </div>
+            <div class="form-group">
+                <label for="email">Електронна пошта</label>
+                {{ form.email() }}
+            </div>
+            <div class="form-group">
+                <label for="message">Повідомлення</label>
+                {{ form.message() }}
+            </div>
+            <div class="form-group captcha">
+                <label for="captcha">Капча</label>
+                {{ form.captcha() }}
+                <span>Введіть цифри, які ви бачите нижче: {{ captcha }}</span>
+            </div>
+            <button type="submit" class="submit-btn">Надіслати</button>
+        </form>
+    </div>
+</body>
+</html>
