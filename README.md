@@ -1,6 +1,6 @@
-Це веб-сайт з front end та back end частинами з захистом від DDoS
-Front end - /templates/index.html
-Back end - app.py
+Це веб-сайт з front end та back end частинами з захистом від DDoS.
+Front end - /templates/index.html.
+Back end - app.py.
 
 **/templates/index.html**
 Забезпечує структуру та вигляд сторінки з контактною формою, яка дозволяє користувачам відправляти повідомлення.
